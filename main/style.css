@@ -1,0 +1,30 @@
+.main_content{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+}
+.search{
+    border: 1px solid black;
+    padding: 5px;
+    grid-column: 2/8;
+    grid-row: 1/2;
+}
+.add{
+    border: 1px solid black;
+    padding: 5px;
+    grid-column: 2/8;
+    grid-row: 2/3;
+}
+.filter{
+    padding: 10px;
+    border: 1px solid black;
+    grid-column: 2/8;
+    grid-row: 3/4;
+}
+.to_do_list{
+    padding: 5px;
+    border: 1px solid black;
+    grid-column: 2/8;
+    grid-row: 4/6;
+}
