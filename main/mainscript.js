@@ -1,4 +1,7 @@
 const inputAdd = document.querySelector('.add_form');
+const tableWithLi = document.querySelector('.to_do_list-table');
+const tableWithRemoveLi = document.querySelector('.to_do_list-table')
+
 inputAdd.addEventListener("submit", (event) => {
 
     event.preventDefault();
@@ -12,16 +15,15 @@ inputAdd.addEventListener("submit", (event) => {
     button.className = "remove-button";
     button.textContent = "[x]";
 
-    const tableWithLi = document.querySelector('.to_do_list-table');
     tableWithLi.append(li);
-    tableWithLi.append(button);
+    tableWithLi.lastChild.append(button);
     inputWithText.value = '';
 
 })
-const tableWithRemoveButtons = document.querySelector('.to_do_list-table')
-tableWithRemoveButtons.addEventListener('click', (event) => {
+
+tableWithRemoveLi.addEventListener('click', (event) => {
     if (event.target.closest(".remove-button")) {
-        const liWillRemoved = event.target.previousSibling;
+        const liWillRemoved = event.target.closest('.to_do_list-One');
         const buttonWillRemoved = event.target;
 
         liWillRemoved.remove();

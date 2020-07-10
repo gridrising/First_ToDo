@@ -1,5 +1,5 @@
 body {
-    background-color: #333333;
+    background-color: #100E17;
 }
 
 .main_content {
@@ -37,37 +37,70 @@ body {
 }
 
 .to_do_list-One {
-    font-size: 28px;
-    color: #44C1DB;
+    font-family: Sans-Serif;
+    font-size: 20px;
+    color: #ffffff;
     padding: 10px;
     margin: 5px;
     margin-right: 0px;
-    background-color: #1E1E1E;
-    border: 1px solid #1A1A1A;
+    background-color: #201C29;
+    border: 1px solid #312D3C;
+    border-radius: 18px;
+    list-style-type: none;
 }
 
 .remove-button {
     font-size: 110%;
-    color: darkred;
+    color: #F7701F;
     width: 24px;
     height: 24px;
     border: none;
     background: transparent;
     cursor: pointer;
 }
-.search_form-input{
-    width: 250px;
-    height: 35px;
-    background-color: #1E1E1E;
-    color: #569CD6;
-    border: 1px solid #181818;
-    border-radius: 10px;
+
+.search_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
-#add_form-input{
-    width: 300px;
+
+.search_form-input {
+    outline: none;
+    font-family: Sans-Serif;
+    width: 400px;
+    height: 35px;
+    background-color: #201C29;
+    color: #FFFFFF;
+    border: 1px solid #312D3C;
+    border-radius: 18px;
+    padding: 5px;
+}
+
+.search_form-head {
+    font-family: Sans-Serif;
+    color: #FFFFFF;
+}
+
+#add_form-input {
+    outline: none;
+    width: 400px;
     height: 45px;
-    background-color: #1E1E1E;
-    color: #569CD6;
-    border: 1px solid #181818;
-    border-radius: 10px;
+    background-color: #201C29;
+    color: #FFFFFF;
+    border: 1px solid #312D3C;
+    border-radius: 18px;
+    padding: 5px;
+}
+
+#add_form-input::placeholder {
+    color: #757575;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.radio_text {
+    font-family: Sans-Serif;
+    color: #FFFFFF;
 }

@@ -24,8 +24,8 @@
 
             <section class="add">
                 <form action="submit" class="add_form">
-                    <label for="add_form-input">
-                        <input type="text" id="add_form-input" placeholder="Напишите что делать" maxlength="200"
+                    <label for="add_form-input" class="add_form-block">
+                        <input type="text" id="add_form-input" placeholder="Напишите ваши планы" maxlength="200"
                             name="name" required>
                     </label>
                 </form>
@@ -33,16 +33,16 @@
 
             <section class="filter">
                 <label for="filter_form-radio">
-                    <form id="filte_form-radio">
+                    <form id="filter_form-radio">
                         <div>
                             <input type="radio" id="contactChoice1" name="contact" value="all" checked>
-                            <label for="contactChoice1">Все</label>
+                            <label for="contactChoice1" class="radio_text">Все</label>
 
                             <input type="radio" id="contactChoice2" name="contact" value="completed">
-                            <label for="contactChoice2">Сделано</label>
+                            <label for="contactChoice2" class="radio_text">Сделано</label>
 
                             <input type="radio" id="contactChoice3" name="contact" value="uncompleted">
-                            <label for="contactChoice3">Не сделано</label>
+                            <label for="contactChoice3" class="radio_text">Не сделано</label>
                         </div>
                     </form>
                 </label>
