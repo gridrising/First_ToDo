@@ -13,6 +13,7 @@ body {
 
     padding: 5px;
     margin: 10px;
+    margin-bottom: 30px;
 
 }
 
@@ -40,6 +41,18 @@ body {
     font-family: Sans-Serif;
     font-size: 20px;
     color: #ffffff;
+    padding: 10px;
+    margin: 5px;
+    margin-right: 0px;
+    background-color: #201C29;
+    border: 1px solid #312D3C;
+    border-radius: 18px;
+    list-style-type: none;
+}
+.to_do_list-One-completed{
+    font-family: Sans-Serif;
+    font-size: 20px;
+    color: #2B8510;
     padding: 10px;
     margin: 5px;
     margin-right: 0px;
@@ -101,6 +114,7 @@ body {
 }
 
 .radio_text {
-    font-family: Sans-Serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #FFFFFF;
+    font-size: 18px;
 }
