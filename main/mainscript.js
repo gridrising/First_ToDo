@@ -15,6 +15,7 @@ inputAdd.addEventListener("submit", (event) => {
     const tableWithLi = document.querySelector('.to_do_list-table');
     tableWithLi.append(li);
     tableWithLi.append(button);
+    inputWithText.value = '';
 
 })
 const tableWithRemoveButtons = document.querySelector('.to_do_list-table')
