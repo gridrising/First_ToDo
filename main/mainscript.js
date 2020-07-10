@@ -1,6 +1,7 @@
 function addLiOfToDo(event) {
+    
     event.preventDefault();
-
+    if (event.target.className != 'add_form') return;
     let formInput = document.getElementById("add_form-input");
 
     let li = document.createElement('li');

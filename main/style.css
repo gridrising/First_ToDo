@@ -38,7 +38,6 @@ body {
 
 .to_do_list-One {
     font-size: 28px;
-    width: 300px;
     color: #44C1DB;
     padding: 10px;
     margin: 5px;
@@ -55,4 +54,20 @@ body {
     border: none;
     background: transparent;
     cursor: pointer;
+}
+.search_form-input{
+    width: 250px;
+    height: 35px;
+    background-color: #1E1E1E;
+    color: #569CD6;
+    border: 1px solid #181818;
+    border-radius: 10px;
+}
+#add_form-input{
+    width: 300px;
+    height: 45px;
+    background-color: #1E1E1E;
+    color: #569CD6;
+    border: 1px solid #181818;
+    border-radius: 10px;
 }
