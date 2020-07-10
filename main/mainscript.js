@@ -1,34 +1,29 @@
-function addLiOfToDo(event) {
-    
+const inputAdd = document.querySelector('.add_form');
+inputAdd.addEventListener("submit", (event) => {
+
     event.preventDefault();
-    if (event.target.className != 'add_form') return;
-    let formInput = document.getElementById("add_form-input");
+    const inputWithText = event.target.querySelector('#add_form-input')
 
-    let li = document.createElement('li');
+    const li = document.createElement("li");
     li.className = "to_do_list-One";
-    li.textContent = formInput.value;
+    li.textContent = inputWithText.value;
 
-    let button = document.createElement('button');
+    const button = document.createElement("button");
     button.className = "remove-button";
-    button.textContent = '[x]';
+    button.textContent = "[x]";
 
-    document.body.firstElementChild.firstElementChild.
-    lastElementChild.lastElementChild.append(li);
-    document.body.firstElementChild.firstElementChild.
-    lastElementChild.lastElementChild.append(button);
+    const tableWithLi = document.querySelector('.to_do_list-table');
+    tableWithLi.append(li);
+    tableWithLi.append(button);
 
-    formInput.value = '';
-}
+})
+const tableWithRemoveButtons = document.querySelector('.to_do_list-table')
+tableWithRemoveButtons.addEventListener('click', (event) => {
+    if (event.target.closest(".remove-button")) {
+        const liWillRemoved = event.target.previousSibling;
+        const buttonWillRemoved = event.target;
 
-function removeLi(event) {
-
-    if (event.target.className != 'remove-button') return;
-
-    let li = event.target.previousSibling;
-    let button = event.target;
-
-    li.remove();
-    button.remove();
-}
-document.addEventListener('submit', addLiOfToDo);
-document.addEventListener('click', removeLi);
+        liWillRemoved.remove();
+        buttonWillRemoved.remove();
+    }
+})
