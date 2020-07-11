@@ -25,10 +25,9 @@ inputAdd.addEventListener("submit", (event) => {
 tableWithRemoveLi.addEventListener('click', (event) => {
     if (event.target.closest(".remove-button")) {
         let liWillRemoved;
-        if (event.target.closest('.to_do_list-One')){
+        if (event.target.closest('.to_do_list-One')) {
             liWillRemoved = event.target.closest('.to_do_list-One');
-        }
-        else{
+        } else {
             liWillRemoved = event.target.closest('.to_do_list-One-completed');
         }
         const buttonWillRemoved = event.target;
@@ -38,58 +37,53 @@ tableWithRemoveLi.addEventListener('click', (event) => {
     }
 })
 
-tableWithLi.addEventListener('click',(event) => {
-    if (event.target.closest('.to_do_list-One')){
+tableWithLi.addEventListener('click', (event) => {
+    if (event.target.closest('.to_do_list-One')) {
         event.target.className = 'to_do_list-One-completed';
     }
 })
 
-filterForm.addEventListener('change',(event) => {
-    if(event.target.closest('#sorted-by-all')){
-        for (let oneLi of tableWithLi.querySelectorAll('li')){
-            if (oneLi.style.display === 'none'){
-                oneLi.style  = 'display:';
+filterForm.addEventListener('change', (event) => {
+    if (event.target.closest('#sorted-by-all')) {
+        for (let oneLi of tableWithLi.querySelectorAll('li')) {
+            if (oneLi.style.display === 'none') {
+                oneLi.style = 'display:';
             }
         }
-    }
-    else if (event.target.closest('#sorted-by-completed')){
-        for (let oneLi of tableWithLi.querySelectorAll('li')){
-            if(oneLi.className === 'to_do_list-One-completed'){
-                oneLi.style  = 'display:';
-            }
-            else{
-                oneLi.style ='display:none';
+    } else if (event.target.closest('#sorted-by-completed')) {
+        for (let oneLi of tableWithLi.querySelectorAll('li')) {
+            if (oneLi.className === 'to_do_list-One-completed') {
+                oneLi.style = 'display:';
+            } else {
+                oneLi.style = 'display:none';
             }
         }
 
-    }
-    else if (event.target.closest('#sorted-by-uncompleted')){
-        for (let oneLi of tableWithLi.querySelectorAll('li')){
-            if(oneLi.className === 'to_do_list-One'){
-                oneLi.style  = 'display:';
-            }
-            else{
-                oneLi.style ='display:none';
+    } else if (event.target.closest('#sorted-by-uncompleted')) {
+        for (let oneLi of tableWithLi.querySelectorAll('li')) {
+            if (oneLi.className === 'to_do_list-One') {
+                oneLi.style = 'display:';
+            } else {
+                oneLi.style = 'display:none';
             }
         }
 
     }
 })
 
-searchForm.addEventListener('input',(event) => {
+searchForm.addEventListener('input', (event) => {
 
     event.preventDefault();
 
     const allListOfLi = tableWithLi.querySelectorAll('li');
     const filter = event.target.value.toLowerCase();
 
-    for (let oneLi of allListOfLi){
+    for (let oneLi of allListOfLi) {
         let textValueOfLi = oneLi.textContent || oneLi.innerText;
         textValueOfLi = textValueOfLi.toLowerCase();
         if (textValueOfLi.indexOf(filter) > -1) {
             oneLi.style = "display:";
-        }
-        else{
+        } else {
             oneLi.style = "display:none";
         }
     }
