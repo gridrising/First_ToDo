@@ -2,6 +2,7 @@ const inputAdd = document.querySelector('.add_form');
 const tableWithLi = document.querySelector('.to_do_list-table');
 const tableWithRemoveLi = document.querySelector('.to_do_list-table')
 const filterForm = document.querySelector('#filter_form-radio')
+const searchForm = document.querySelector('.search_form')
 inputAdd.addEventListener("submit", (event) => {
 
     event.preventDefault();
@@ -43,41 +44,53 @@ tableWithLi.addEventListener('click',(event) => {
     }
 })
 
-filterForm.addEventListener('click',(event) => {
+filterForm.addEventListener('change',(event) => {
     if(event.target.closest('#sorted-by-all')){
-        for (let oneLi of document.getElementsByTagName('li')){
-           console.log(oneLi);
-           console.log(oneLi.style)
-            if (oneLi.style.display === 'hidden'){
-                oneLi.style.display = '';
+        for (let oneLi of tableWithLi.querySelectorAll('li')){
+            if (oneLi.style.display === 'none'){
+                oneLi.style  = 'display:';
             }
         }
     }
     else if (event.target.closest('#sorted-by-completed')){
-        for (let oneLi of document.getElementsByTagName('li')){
-            console.log(oneLi);
-            console.log(oneLi.style)
-            if(oneLi.className === '.to_do_list-One-completed'){
-                oneLi.style.display = '';
+        for (let oneLi of tableWithLi.querySelectorAll('li')){
+            if(oneLi.className === 'to_do_list-One-completed'){
+                oneLi.style  = 'display:';
             }
             else{
-                oneLi.style.display = 'hidden';
+                oneLi.style ='display:none';
             }
         }
 
     }
     else if (event.target.closest('#sorted-by-uncompleted')){
-        for (let oneLi of document.getElementsByTagName('li')){
-            console.log(oneLi);
-            console.log(oneLi.style)
-            if(oneLi.className === '.to_do_list-One'){
-                oneLi.style.display = '';
+        for (let oneLi of tableWithLi.querySelectorAll('li')){
+            if(oneLi.className === 'to_do_list-One'){
+                oneLi.style  = 'display:';
             }
             else{
-                oneLi.style.display = 'hidden';
+                oneLi.style ='display:none';
             }
         }
 
     }
 })
 
+searchForm.addEventListener('input',(event) => {
+
+    event.preventDefault();
+
+    const allListOfLi = tableWithLi.querySelectorAll('li');
+    const filter = event.target.value.toLowerCase();
+
+    for (let oneLi of allListOfLi){
+        let textValueOfLi = oneLi.textContent || oneLi.innerText;
+        textValueOfLi = textValueOfLi.toLowerCase();
+        if (textValueOfLi.indexOf(filter) > -1) {
+            oneLi.style = "display:";
+        }
+        else{
+            oneLi.style = "display:none";
+        }
+    }
+})
