@@ -121,7 +121,7 @@ searchForm.addEventListener('input', (event) => {
     const allListOfLi = tableWithLi.querySelectorAll('li');
     const filter = event.target.value.toLowerCase();
     allListOfLi.forEach((oneLi) => {
-        let textValueOfLi = oneLi.textContent.toLowerCase() || oneLi.innerText.toLowerCase();
+        const textValueOfLi = oneLi.textContent.toLowerCase() || oneLi.innerText.toLowerCase();
         makeSearchWithFilter(textValueOfLi, filter, oneLi);
     })
 })
