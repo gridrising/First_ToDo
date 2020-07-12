@@ -10,28 +10,22 @@ body {
 }
 
 .search {
-
     padding: 5px;
     margin: 10px;
     margin-bottom: 30px;
-
 }
 
 .add {
-
     padding: 5px;
     margin: 10px;
-
 }
 
 .filter {
     padding: 10px;
     margin: 10px;
-
-
 }
 
-.to_do_list {
+.to_do_list-table {
     padding: 5px;
     margin: 10px;
     width: 700px;
@@ -48,19 +42,17 @@ body {
     border: 1px solid #312D3C;
     border-radius: 18px;
     list-style-type: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    overflow-x:hidden;
 }
 
 .to_do_list-One-completed {
-    font-family: Sans-Serif;
-    font-size: 20px;
     color: #2B8510;
-    padding: 10px;
-    margin: 5px;
-    margin-right: 0px;
-    background-color: #201C29;
-    border: 1px solid #312D3C;
-    border-radius: 18px;
-    list-style-type: none;
+}
+.to_do_list-One-hidden{
+    display: none;
 }
 
 .remove-button {
