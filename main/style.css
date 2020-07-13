@@ -106,8 +106,16 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.radio_text {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #FFFFFF;
-    font-size: 18px;
+.filter_form-radio{
+    display: flex;
+    justify-content: space-between;
+}
+.filter_form-button{
+    color:#FFFFFF;
+    background-color:#201C29;
+    border: 1px solid #312D3C;
+    border-radius: 4px;
+}
+.filter_form-button-pressed{
+    color:#2B8510;
 }

@@ -32,18 +32,11 @@
 
             <section class="filter">
                 <label for="filter_form-radio">
-                    <form id="filter_form-radio">
-                        <div>
-                            <input type="radio" id="sorted-by-all" name="contact" value="all" checked>
-                            <label for="sorted-by-all" class="radio_text">Все</label>
-
-                            <input type="radio" id="sorted-by-completed" name="contact" value="completed">
-                            <label for="sorted-by-completed" class="radio_text">Сделано</label>
-
-                            <input type="radio" id="sorted-by-uncompleted" name="contact" value="uncompleted">
-                            <label for="sorted-by-uncompleted" class="radio_text">Не сделано</label>
-                        </div>
-                    </form>
+                    <div class="filter_form-radio">
+                        <button class="filter_form-button filter_form-button-pressed" id="sorted-by-all">All</button>
+                        <button class="filter_form-button" id="sorted-by-completed">Completed</button>
+                        <button class="filter_form-button" id="sorted-by-uncompleted">Uncompleted</button>
+                    </div>
                 </label>
             </section>
 

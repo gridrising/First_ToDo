@@ -1,17 +1,18 @@
 const inputAdd = document.querySelector('.add_form');
 const inputWithText = inputAdd.querySelector('#add_form-input');
 const tableWithLi = document.querySelector('.to_do_list-table');
-const filterForm = document.querySelector('#filter_form-radio');
+const filterForm = document.querySelector('.filter_form-radio');
 const searchForm = document.querySelector('.search_form');
 const searchFormInput = document.querySelector('.search_form-input');
 const sortedByAll = document.querySelector('#sorted-by-all');
 const sortedByCompleted = document.querySelector('#sorted-by-completed');
 const sortedByUncompleted = document.querySelector('#sorted-by-uncompleted');
+let currentButton = sortedByAll;
 const createLi = () => {
     const li = document.createElement("li");
     li.classList.add("to_do_list-One");
     li.textContent = inputWithText.value;
-    if (sortedByCompleted.checked) {
+    if (currentButton == sortedByCompleted) {
         li.style = 'display:none';
     }
     return li;
@@ -28,6 +29,18 @@ const removeLi = (eventTarget) => {
 }
 const removeButton = (eventTarget) => {
     eventTarget.remove();
+}
+const pressButton = (eventTarget) =>{
+    const listOfButtons = filterForm.querySelectorAll('.filter_form-button')
+    listOfButtons.forEach((item) =>{
+        if(item == event.target){
+            item.classList.add('filter_form-button-pressed')
+        }
+        else{
+            item.classList.remove('filter_form-button-pressed')
+        }
+    })
+    currentButton = event.target;
 }
 const showListOfLiIfCompleted = (arrayWithLiUncompleted, arrayWithLiCompleted) => {
     arrayWithLiUncompleted.forEach((item) => {
@@ -66,7 +79,7 @@ const showAllLi = () => {
     })
 }
 const chooseWhichListOfLiShow = () => {
-    if (sortedByCompleted.checked) {
+    if (currentButton == sortedByCompleted) {
         showListOfLiIfCompleted(createListOfUncompleted(), createListOfCompleted());
     } else {
         showListOfLiIfUnCompleted(createListOfCompleted(), createListOfUncompleted());
@@ -80,22 +93,20 @@ const filterByText = (textValueOfLi, filter, oneLi) => {
     }
 }
 const makeSearchWithFilter = (textValueOfLi, filter, oneLi) => {
-    switch (true) {
-        case sortedByAll.checked:
+    switch (currentButton) {
+        case sortedByAll:
             filterByText(textValueOfLi, filter, oneLi);
-            break;
-        case sortedByCompleted.checked:
+        case sortedByCompleted:
             if (oneLi.classList.contains('to_do_list-One-completed')) {
                 filterByText(textValueOfLi, filter, oneLi);
             }
-            break;
-        case sortedByUncompleted.checked:
+        case sortedByUncompleted:
             if (!oneLi.classList.contains('to_do_list-One-completed')) {
                 filterByText(textValueOfLi, filter, oneLi);
             }
-            break;
     }
 }
+
 inputAdd.addEventListener("submit", (event) => {
     event.preventDefault();
     tableWithLi.append(createLi());
@@ -112,8 +123,9 @@ tableWithLi.addEventListener('click', (event) => {
     // Make Li completed or not;
     event.target.classList.toggle('to_do_list-One-completed');
 })
-filterForm.addEventListener('change', (event) => {
-    sortedByAll.checked ? showAllLi() : chooseWhichListOfLiShow();
+filterForm.addEventListener('click', (event) => {
+    pressButton(event.target);
+    (currentButton == sortedByAll) ? showAllLi() : chooseWhichListOfLiShow();
     searchFormInput.value = '';
 })
 searchForm.addEventListener('input', (event) => {
