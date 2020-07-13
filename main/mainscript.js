@@ -33,14 +33,14 @@ const removeButton = (eventTarget) => {
 const pressButton = (eventTarget) =>{
     const listOfButtons = filterForm.querySelectorAll('.filter_form-button')
     listOfButtons.forEach((item) =>{
-        if(item == event.target){
+        if(item == eventTarget){
             item.classList.add('filter_form-button-pressed')
         }
         else{
             item.classList.remove('filter_form-button-pressed')
         }
     })
-    currentButton = event.target;
+    currentButton = eventTarget;
 }
 const showListOfLiIfCompleted = (arrayWithLiUncompleted, arrayWithLiCompleted) => {
     arrayWithLiUncompleted.forEach((item) => {
@@ -96,14 +96,17 @@ const makeSearchWithFilter = (textValueOfLi, filter, oneLi) => {
     switch (currentButton) {
         case sortedByAll:
             filterByText(textValueOfLi, filter, oneLi);
+            break;
         case sortedByCompleted:
             if (oneLi.classList.contains('to_do_list-One-completed')) {
                 filterByText(textValueOfLi, filter, oneLi);
             }
+            break;
         case sortedByUncompleted:
             if (!oneLi.classList.contains('to_do_list-One-completed')) {
                 filterByText(textValueOfLi, filter, oneLi);
             }
+            break;
     }
 }
 
