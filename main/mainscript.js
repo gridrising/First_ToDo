@@ -13,7 +13,7 @@ const createLi = () => {
     li.classList.add("to_do_list-One");
     li.textContent = inputWithText.value;
     if (currentButton == sortedByCompleted) {
-        li.style = 'display:none';
+        li.classList.add('to_do_list-One-hidden');
     }
     return li;
 }
@@ -59,10 +59,7 @@ const showListOfLiIfUnCompleted = (arrayWithLiCompleted, arrayWithLiUncompleted)
     })
 }
 const createListOfCompleted = () => {
-    const arrayWithLi = tableWithLi.querySelectorAll('li');
-    const listOfLi = [].filter.call(arrayWithLi, (item) => {
-        return item.classList.contains('to_do_list-One-completed')
-    })
+    const listOfLi = tableWithLi.querySelectorAll('.to_do_list-One-completed');
     return listOfLi;
 }
 const createListOfUncompleted = () => {
