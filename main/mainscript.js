@@ -55,7 +55,7 @@ const createListOfCompleted = () => {
 const createListOfUncompleted = () => {
     return arrayWithToDo.filter( item => ( !(item.classList.contains('to_do_list-One-completed') )));
 }
-const showAllLi = () => {
+const showAllToDo = () => {
     arrayWithToDo.forEach(item => (item.classList.remove('to_do_list-One-hidden')));
 }
 const chooseWhichListShow = () => {
@@ -109,7 +109,7 @@ tableWithToDo.addEventListener('click', (event) => {
 })
 filterForm.addEventListener('click', (event) => {
     pressFilterButton(event.target);
-    (filterCurrentButton == sortedByAll) ? showAllLi() : chooseWhichListShow();
+    (filterCurrentButton == sortedByAll) ? showAllToDo() : chooseWhichListShow();
     searchFormInput.value = '';
 })
 searchFormInput.addEventListener('input', (event) => {
