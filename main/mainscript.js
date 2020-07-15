@@ -30,7 +30,7 @@ const removeToDo = (eventTarget) => {
 const removeButton = (eventTarget) => {
     eventTarget.remove();
 }
-const pressButton = (eventTarget) =>{
+const pressFilterButton = (eventTarget) =>{
     listOfFilterButtons.forEach((item) =>{
         if(item === eventTarget){
             item.classList.add('filter_form-button-pressed')
@@ -108,7 +108,7 @@ tableWithToDo.addEventListener('click', (event) => {
     event.target.classList.toggle('to_do_list-One-completed');
 })
 filterForm.addEventListener('click', (event) => {
-    pressButton(event.target);
+    pressFilterButton(event.target);
     (filterCurrentButton == sortedByAll) ? showAllLi() : chooseWhichListShow();
     searchFormInput.value = '';
 })
