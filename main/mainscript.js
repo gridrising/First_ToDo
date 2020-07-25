@@ -13,7 +13,7 @@ const createToDo = () => {
     const oneToDo = document.createElement("li");
     oneToDo.classList.add("to_do_list-One");
     oneToDo.textContent = textOfAddToDoForm.value;
-    if (filterCurrentButton == sortedByCompleted) {
+    if (filterCurrentButton === sortedByCompleted) {
         oneToDo.classList.add('to_do_list-One-hidden');
     }
     return oneToDo;
@@ -59,7 +59,7 @@ const showAllToDo = () => {
     arrayWithToDo.forEach(item => (item.classList.remove('to_do_list-One-hidden')));
 }
 const chooseWhichListShow = () => {
-    if (filterCurrentButton == sortedByCompleted) {
+    if (filterCurrentButton === sortedByCompleted) {
         showListOfCompleted(createListOfUncompleted(), createListOfCompleted());
     } else {
         showListOfUncompleted(createListOfCompleted(), createListOfUncompleted());
@@ -91,6 +91,7 @@ const makeSearchWithFilter = (textValueOfToDo, filter, oneToDo) => {
             break;
     }
 }
+// listener for adding new toDo
 addToDoForm.addEventListener("submit", (event) => {
     event.preventDefault();
     tableWithToDo.append(createToDo());
@@ -98,20 +99,24 @@ addToDoForm.addEventListener("submit", (event) => {
     arrayWithToDo.push(tableWithToDo.lastChild);
     textOfAddToDoForm.value = '';
 })
+// listener for deleting toDo
 tableWithToDo.addEventListener('click', (event) => {
     if (event.target.closest(".remove-button")) {
         removeToDo(event.target);
         removeButton(event.target);
     }
 })
+// listener for changing state of toDo
 tableWithToDo.addEventListener('click', (event) => {
     event.target.classList.toggle('to_do_list-One-completed');
 })
+// listener for filter of state
 filterForm.addEventListener('click', (event) => {
     pressFilterButton(event.target);
-    (filterCurrentButton == sortedByAll) ? showAllToDo() : chooseWhichListShow();
+    (filterCurrentButton === sortedByAll) ? showAllToDo() : chooseWhichListShow();
     searchFormInput.value = '';
 })
+// listener for search with filter
 searchFormInput.addEventListener('input', (event) => {
     const filter = event.target.value.toLowerCase();
     arrayWithToDo.forEach((oneToDo) => {
