@@ -30,6 +30,28 @@ body {
     margin: 10px;
     width: 700px;
 }
+.to_do_list__wrapper{
+    height: 450px;
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+  }
+/* Track */
+::-webkit-scrollbar-track {
+    background: #aaaaaa;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 
 .to_do_list-One {
     font-family: Sans-Serif;
